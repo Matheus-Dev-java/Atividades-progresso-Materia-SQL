@@ -1,4 +1,4 @@
--- exercicio de aplicacao geral: chave estrangeira + normalizacao + joins
+-- exercicio de aplicacao geral
 
 -- exercicio 1: cadastrar um fornecedor novo, com chave primaria propria,
 -- e ligar os produtos a ele atraves de uma chave estrangeira
@@ -44,7 +44,7 @@ union
 select razao_social as nome from fornecedores;
 
 -- exercicio 5: mostrar o pedido completo (cliente + produtos + quantidade),
--- usando 3 joins encadeados (essa consulta so eh possivel por causa das fks
+-- usando 3 joins encadeados (essa consulta so é possivel por causa das fks
 -- criadas entre pedidos, clientes, itens_pedido e produtos)
 select
   clientes.nome_cliente,
@@ -57,8 +57,3 @@ inner join itens_pedido on itens_pedido.id_pedido = pedidos.id_pedido
 inner join produtos on produtos.id_produto = itens_pedido.id_produto
 order by pedidos.id_pedido;
 
--- REFLEXAO:
--- as chaves estrangeiras foram o que permitiu escrever os joins acima sem
--- risco de "juntar" dados errados. e a normalizacao foi o que garantiu que
--- cada informacao (cliente, produto, fornecedor) morasse em uma unica tabela,
--- evitando repeticao e inconsistencia.
