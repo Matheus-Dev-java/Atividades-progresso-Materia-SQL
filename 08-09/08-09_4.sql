@@ -1,7 +1,3 @@
--- tema da aula: operadores set (union, union all, except/minus, intersect)
--- objetivo: "empilhar" resultados de consultas diferentes, desde que as
--- colunas selecionadas tenham a mesma estrutura (mesma quantidade e tipo).
-
 -- union: junta os nomes de clientes e de fornecedores numa lista so,
 -- removendo duplicados (caso o mesmo nome aparecesse nas duas tabelas)
 select nome_cliente as nome from clientes
