@@ -1,8 +1,3 @@
--- tema da aula: chave estrangeira (foreign key)
--- objetivo: formalizar o relacionamento entre as tabelas da loja de informatica,
--- que ate agora so existiam "na pratica" (id_cliente dentro de pedidos, id_produto
--- dentro de itens_pedido), mas sem uma FK de verdade garantindo a integridade.
-
 -- recriando as tabelas principais ja com chave primaria (pk) e chave estrangeira (fk)
 
 create table clientes (
@@ -43,9 +38,6 @@ create table itens_pedido (
   foreign key (id_produto) references produtos(id_produto)
 );
 
--- sem a fk, seria possivel inserir um pedido com um id_cliente que nao existe
--- (um pedido "orfao"). com a fk, o banco bloqueia isso automaticamente.
-
 -- exemplo de insercao valida (o cliente e o produto ja existem nas tabelas acima)
 insert into clientes (id_cliente, nome_cliente, email, telefone, cidade)
 values (1, 'joao silva', 'joao@email.com', '71999990001', 'salvador');
@@ -56,7 +48,3 @@ values (1, 'notebook gamer', 'notebook', 4300.00, 8, 'dell', 2.50);
 insert into pedidos (id_pedido, id_cliente, data_pedido, status_pedido)
 values (1, 1, '2026-09-08', 'pendente');
 
--- exemplo de insercao que a fk bloquearia (cliente 99 nao existe)
--- insert into pedidos (id_pedido, id_cliente, data_pedido, status_pedido)
--- values (2, 99, '2026-09-08', 'pendente');
--- -> erro de violacao de chave estrangeira
