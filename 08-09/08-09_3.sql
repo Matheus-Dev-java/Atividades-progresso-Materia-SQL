@@ -1,7 +1,4 @@
--- tema da aula: joins
--- objetivo: usar os relacionamentos criados no arquivo de chave estrangeira
--- (clientes -> pedidos -> itens_pedido <- produtos) para combinar as tabelas
--- horizontalmente.
+
 
 -- inner join: so traz pedidos que tem cliente correspondente
 select
